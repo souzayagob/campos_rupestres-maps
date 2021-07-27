@@ -1,4 +1,4 @@
-Codes and files to compose maps, especially those related to the *campos rupestres*. For this to work, you must download the following folders and place them in the working directory:
+Codes to compose maps, especially of the *campos rupestres*. For this to work, you must download the following folders and place them in your working directory:
 
 https://drive.google.com/drive/folders/1tIRuNwPh7rlcEVCqhKmfZnu3HzIwFXxf?usp=sharing
 
