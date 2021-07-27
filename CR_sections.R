@@ -1,4 +1,4 @@
-#Function to get equivalent colour with a different degree of transparency. From: https://stackoverflow.com/questions/8047668/transparent-equivalent-of-given-color
+#Function to get a equivalent colour with a different degree of transparency. From: https://stackoverflow.com/questions/8047668/transparent-equivalent-of-given-color
 makeTransparent = function(..., alpha=0.5) {
   if(alpha<0 | alpha>1) stop("alpha must be between 0 and 1")
   alpha = floor(255*alpha)  
@@ -30,7 +30,7 @@ library(latticeExtra)
 crswgs84 <- CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
 
 #Reading shapefiles
-cr <- readOGR("shapefiles/shapefilecamporupestre/cr.shp") #Silveira (2016)
+cr <- readOGR("shapefiles/shapefilecamporupestre/cr.shp") #https://doi.org/10.1007/s11104-015-2637-8
 br <- readOGR("shapefiles/br_unidades_da_federacao/BRUFE250GC_SIR.shp", encoding = "UTF-8") #IBGE: https://downloads.ibge.gov.br/downloads_geociencias.htm
 
 #Projecting
