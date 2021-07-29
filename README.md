@@ -13,3 +13,5 @@ https://drive.google.com/drive/folders/1rYeJXOEMirjXbnvz7A3QH3kdt8fhbg_B?usp=sha
 
 'latticeExtra': 0.6.29
 
+'geojsonio': 0.9.4
+
