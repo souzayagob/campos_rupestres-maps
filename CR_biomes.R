@@ -66,7 +66,7 @@ biomes <- bind(cerrado, caatinga, atlantic)
 
 #Defining grids that correspond to the Brazilian Central Plateau and the Serra da Canastra
 #Arguments at function 'extent' go in this order: xmin, xmax, ymin, ymax
-#These will be required bellow
+#These will be required later
 
 #Brazilian Central Plateau
 cr_plateau <- raster(extent(-50.5, -45, -18, -12), crs = crswgs84, nrows = 1, ncols = 1)
@@ -83,7 +83,7 @@ cr_canastra <- rasterToPolygons(cr_canastra)
 #======================================================================================================#
 
 #The code bellow will delimit the extension of each section in the campos rupestres by intersecting the campos rupestres shapefile with different polygons
-#Note that the Southern Espinhaço and the Northern Espinhaço are delimitedusing federative unities, while the Brazilian Central Plateau and the Serra da Canastra are delimited using the polygons generated above
+#Note that the Southern Espinhaço and the Northern Espinhaço are delimited using federative unities, while the Brazilian Central Plateau and the Serra da Canastra are delimited using the polygons generated above
 
 #Cropping the campos rupestres shapefile in order to remove disjunct areas
 campos_rup <- crop(cr, extent(c(-50.5, -38.5, -23.25, -8.5)))
