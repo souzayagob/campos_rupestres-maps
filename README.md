@@ -1,8 +1,4 @@
-Codes to compose maps, especially of the *campos rupestres*. They will only work if you download the following folders and place them in your working directory:
-
-https://drive.google.com/drive/folders/1tIRuNwPh7rlcEVCqhKmfZnu3HzIwFXxf?usp=sharing
-
-https://drive.google.com/drive/folders/1rYeJXOEMirjXbnvz7A3QH3kdt8fhbg_B?usp=sharing
+Codes to compose maps, especially of the *campos rupestres*. 
 
 # Packages version numbers:
 'scales': 1.1.1
