@@ -38,10 +38,12 @@ crswgs84 <- CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
 #Reading shapefiles
 cr <- readOGR("shapefiles/shapefilecamporupestre/cr.shp") #https://doi.org/10.1007/s11104-015-2637-8
 br <- readOGR("shapefiles/br_unidades_da_federacao/BRUFE250GC_SIR.shp", encoding = "UTF-8") #IBGE: https://downloads.ibge.gov.br/downloads_geociencias.htm
+sa <- readOGR("shapefiles/South_America/South_America.shp", encoding = "UTF-8")
 
 #Projecting
 proj4string(cr) <- crswgs84
 br <- spTransform(br, crswgs84)
+sa <- spTransform(sa, crswgs84)
 
 #Setting a transparent grid covering the extension of the campos rupestres
 br_cr <- raster(extent(-50.5, -38.5, -23.25, -8.5),
@@ -91,9 +93,9 @@ for(i in 1:nrow(campos_rup)){
   if(gIntersects(campos_rup[i, ], cr_canastra)){
     campos_rup@data$sector[i] <- "Serra da Canastra"
   } else if(gIntersects(campos_rup[i, ], br_mg)){
-    campos_rup@data$sector[i] <- "Southern EspinhaÃ§o"
+    campos_rup@data$sector[i] <- "Southern Espinhaço"
   } else if(gIntersects(campos_rup[i, ], br_ba)){
-    campos_rup@data$sector[i] <- "Northern EspinhaÃ§o"
+    campos_rup@data$sector[i] <- "Northern Espinhaço"
   } else if(gIntersects(campos_rup[i, ], cr_plateau)){
     campos_rup@data$sector[i] <- "Brazilian Central Plateau"
   }
@@ -101,7 +103,7 @@ for(i in 1:nrow(campos_rup)){
 
 #Ordering the categories
 campos_rup$sector <- factor(campos_rup$sector, 
-                            c("Southern EspinhaÃ§o", "Northern EspinhaÃ§o",
+                            c("Southern Espinhaço", "Northern Espinhaço",
                               "Serra da Canastra",
                               "Brazilian Central Plateau"),
                             ordered = is.ordered(campos_rup$sector))
@@ -150,3 +152,9 @@ cr_plot  <- spplot(campos_rup, zcol = "sector",
 #plot(br_cr, col = "#BEBEBE7F", add = TRUE)
 #plot(cr, col = "black", add = TRUE)
 #dev.off()
+png("sa_plot.png",
+    height = 4, width = 4, units = 'in', res=300)
+plot(sa)
+plot(br_cr, col = "#BEBEBE7F", add = TRUE)
+plot(cr, col = "black", add = TRUE)
+dev.off()

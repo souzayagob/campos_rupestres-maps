@@ -156,6 +156,27 @@ biomes_plot <-  spplot(biomes, zcol = "CD_LEGENDA",
                        col = "transparent",
                        col.regions = c("mediumvioletred", "darkblue", "tan4"))
 
+br <- crop(br, extent(-50.5, -38.5, -23.25, -8.5))
+
+#BR plot
+library(surveillance) #for scale bars
+sb <- layout.scalebar(br, corner = c(0.9, 0.1), scale = 100,
+                      labels = c("0", "100"), cex = 0.8, height = 0.1)
+br_plot <- spplot(br, zcol = "NM_ESTADO", 
+                  colorkey = FALSE,
+                  scales = list(draw = TRUE),
+                  sp.layout = sb,
+                  col = "black",
+                  col.regions = "transparent")
+
+
+
+scale1 <- list("SpatialPolygonsRescale", layout.scale.bar(), 
+               offset = c(180500, 329800), scale = 500, fill=c("transparent","black"), which = 3)
+s1_text0 <- list("sp.text", c(180500, 329800 + 150), "0", cex = .5, which = 3)
+s1_text1 <- list("sp.text", c(180500 + 500, 329800 + 150), "500 m", cex = .5, which = 3)
+
+
 #Elevation map
 alt_plot  <- spplot(rr, col.regions = grey(1:100/100, alpha = 0.7), 
                maxpixels = 2e10, colorkey = FALSE)
